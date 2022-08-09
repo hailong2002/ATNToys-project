@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>View All Product</title>
+</head>
+
+<body>
+     <nav class="navbar navbar-default"  style="border: solid #106EDE;" >
+        <div class="container-fluid" style="background: #106EDE; ">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/" style="color: white">ATNToys</a>
+            </div>
+            <ul class="nav navbar-nav" style="font-size: 20px;">
+                <li><a href="/" style="color: white">Home</a></li>
+                <li><a href="/viewAll" style="color: white">All Products</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <form action="/search" method="post" style="margin-left: 500px;">
+        <input type="text" style="width: 500px; height: 40px; border: solid#106EDE; font-size:20px; " name="txtName">
+        <input type="submit" value="Search" class="btn btn-primary" style="height:42px; margin-top:-3px; background:#106EDE; color: white; border:solid #106EDE">
+    </form>
+    <br>
+    {{!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            {{#each products}}
+            {{#if @first}}
+            <li data-target="#myCarousel" data-slide-to="{{@index}}" class="active"></li>
+            {{else}}
+            <li data-target="#myCarousel" data-slide-to="{{@index}}"></li>
+            {{/if}}
+            {{/each}}
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            {{#each products}}
+                {{#if @first}}
+                    <div class="item active">
+                        <img class="d-block w-100" src="{{picURL}}" width="150" height="100" alt="{{name}}" />
+                    </div>
+                {{else}}
+                    <div class="item">
+                        <img class="d-block w-100" src="{{picURL}}" width="150" height="100" alt="{{name}}" />
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div> --}}
+
+    <a type="button"  href="/create" style="font-size:15px; color:white; text-decoration: none; padding: 8px 16px;
+    background: #13B68C ; margin-left:215px">Create new Product</a>
+    <a type="button"  href="/sortAscend" style="font-size:15px; color:white; text-decoration: none; padding: 8px 16px;
+    background: #29D13B ; margin-left:818px">Sort price 🢁</a>
+     <a type="button"  href="/sortDescend" style="font-size:15px; color:white; text-decoration: none; padding: 8px 16px;
+    background: #E6AA31 ; margin-left:15px">Sort price 🢃</a>
+
+    <div class="col-sm-9" style="margin-left: 200px;">
+    <table class="table" style="; margin-top:30px; font-size: 18px;border: solid #106EDE">
+        <thead style="background-color: #106EDE ; color:white; ">
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Picture</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody style="color:#106EDE; ">
+            {{#each products}}
+            <tr style="border: solid #106EDE;">
+                {{!-- {{@index}}- --}}
+                <td>{{name}}</td>
+                <td>{{price}}</td>
+                <td><img src="{{picURL}}" width="150" height="180" /></td>
+                <td><a type="button"  href="/edit?id={{_id}}" 
+                style="font-size:15px; color:white; text-decoration: none; padding: 8px 16px;
+                background: #106EDE">Edit</a></td>
+                <td><a type="button"  href="/delete?id={{_id}}" 
+                style="font-size:15px; color:white; text-decoration: none; padding: 8px 16px;
+                background: #A8231F">Delete</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+        </div>
+</body>
+
+</html>

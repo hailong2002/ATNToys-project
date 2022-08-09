@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Edit product</title>
+</head>
+<body>
+    <nav class="navbar navbar-default"  style="border: solid #106EDE;" >
+        <div class="container-fluid" style="background: #106EDE;  ">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/" style="color: white">ATNToys</a>
+            </div>
+            <ul class="nav navbar-nav" style="font-size: 20px;">
+                <li><a href="/" style="color: white">Home</a></li>
+                <li><a href="/viewAll" style="color: white">All Products</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1 style="margin-left: 50px;">Edit product</h1>
+    <div class="table-responsive" style="margin-left: 50px;">
+        <form action="/editProduct" method="post">
+        <input type="hidden" name="_id" value="{{product._id}}">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="txtName" value="{{product.name}}" style="width:50%; height:40px;font-size:20px ;border:solid #106EDE">
+            <div style="color: red;">{{nameError}}</div> 
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" name="txtPrice" id="price" class="form-control" value="{{product.price}}" style="width:50%; height:40px;font-size:20px ;border:solid #106EDE">
+        </div>
+        <div class="form-group">
+            <label for="picture">Picture URL</label>
+            <input type="text" name="txtPicture" id="picture" class="form-control" value="{{product.picURL}}" style="width:50%; height:40px;font-size:20px ;border:solid #106EDE">
+            <img src="{{product.picURL}}" style="width: 20%; height:30%">
+        </div>         
+        <input type="submit" value="Update Product" class="btn btn-default" style="font-size:15px; color:white; text-decoration: none; padding: 8px 16px;background: #106EDE;">
+        <a href="/viewAll" class="btn btn-default" style="font-size:15px; color:white; text-decoration: none; padding: 8px 16px;background: #CF2E2E ;">Cancel</a>
+    </form>
+    </div>
+</body>
+</html>
